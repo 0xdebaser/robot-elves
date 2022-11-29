@@ -16,12 +16,10 @@ const generateAction = async (req, res) => {
     max_tokens: 250,
   });
 
-  res.set({
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-  });
-
   const basePromptOutput = baseCompletion.data.choices.pop();
+
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
 
   res.status(200).json({ output: basePromptOutput });
 };
