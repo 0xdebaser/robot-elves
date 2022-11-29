@@ -6,7 +6,6 @@ function generateAndSetPrompt(
   recipientName = null,
   additionalDetails = null
 ) {
-  console.log("Running generateAndSetPrompt");
   // Generate author
   let author;
   switch (authorType) {
@@ -45,13 +44,13 @@ function generateAndSetPrompt(
   // Generate new prompt
   let newPrompt;
   if (recipient) {
-    newPrompt = `Write a letter from ${author} to ${recipient}`;
+    newPrompt = `Write a letter from ${author} to ${recipient}.\n`;
   } else {
-    newPrompt = `Write a letter from ${author}`;
+    newPrompt = `Write a letter from ${author}.\n`;
   }
 
   if (additionalDetails) {
-    newPrompt = `${newPrompt} that includes ${additionalDetails}`;
+    newPrompt = `${newPrompt} that includes ${additionalDetails}.\n`;
   }
   setPrompt(newPrompt);
 }

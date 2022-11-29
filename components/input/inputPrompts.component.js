@@ -10,14 +10,24 @@ import recipientNameOnChangeHandler from "./handlers/recipientNameOnChangeHandle
 import recipientTypeOnChangeHandler from "./handlers/recipientTypeOnChangeHandler";
 import recipientTypes from "../../assets/data/recipientTypes";
 
-function InputPrompts({ prompt, setPrompt }) {
-  const [authorType, setAuthorType] = useState(null);
-  const [authorName, setAuthorName] = useState(null);
-  const [recipientType, setRecipientType] = useState(null);
-  const [recipientName, setRecipientName] = useState(null);
-  const [additionalDetails, setAdditionalDetails] = useState(null);
-  const [activeInput, setActiveInput] = useState("authorType");
-
+function InputPrompts({
+  prompt,
+  setPrompt,
+  setApiOutput,
+  setIsGenerating,
+  authorType,
+  setAuthorType,
+  authorName,
+  setAuthorName,
+  recipientType,
+  setRecipientType,
+  recipientName,
+  setRecipientName,
+  additionalDetails,
+  setAdditionalDetails,
+  activeInput,
+  setActiveInput,
+}) {
   return (
     <div className="prompt-container">
       {activeInput === "authorType" && (
@@ -208,6 +218,8 @@ function InputPrompts({ prompt, setPrompt }) {
             prompt={prompt}
             setPrompt={setPrompt}
             recipientName={recipientName}
+            setIsGenerating={setIsGenerating}
+            setApiOutput={setApiOutput}
           />
         </div>
       )}

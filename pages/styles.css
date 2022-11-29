@@ -16,6 +16,20 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
+#letter-container {
+  font-family: "Mountains of Christmas", cursive;
+  font-size: x-large;
+  width: 75%;
+  white-space: pre-line;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 100px;
+}
+
+#loading-bar {
+  color: var(--not-quite-black);
+}
+
 .green-text {
   color: var(--color-six);
 }
