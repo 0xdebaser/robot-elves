@@ -1,5 +1,4 @@
 function authorNameHelper(authorType) {
-  console.log("authorNameHelper running");
   switch (authorType) {
     case "One of Santa's Elves":
       return "What is the name of the elf writing the letter?";

@@ -1,18 +1,16 @@
 import { useState } from "react";
 
 import Head from "next/head";
-import Image from "next/image";
 
-import buildspaceLogo from "../assets/buildspace-logo.png";
 import InputPrompts from "../components/input/inputPrompts.component";
-import Letter from "../components/letter/letter.component";
 import LoadingBar from "../components/loadingBar";
 import apiOutputOnChangeHandler from "../components/input/handlers/apiOutputOnChangeHandler";
-import callGenerateEndpoint from "../components/input/helpers/callGenerateEndpoint";
 import LetterWrapper from "../components/letter/letterWrapper";
 
 const Home = () => {
+  // The propmpt that gets sent to the API
   const [prompt, setPrompt] = useState();
+  // The text returned from the API
   const [apiOutput, setApiOutput] = useState();
   const [isGenerating, setIsGenerating] = useState(false);
   const [authorType, setAuthorType] = useState(null);
@@ -37,7 +35,7 @@ const Home = () => {
   return (
     <div className="root">
       <Head></Head>
-      <div className="container">
+      <div>
         <div className="header">
           <div className="header-title">
             <h1>
@@ -57,7 +55,6 @@ const Home = () => {
             </div>
           )}
         </div>
-
         {prompt && (
           <h2 className="prompt-paragraph red-text">"{prompt.slice(0, -1)}"</h2>
         )}
@@ -102,7 +99,7 @@ const Home = () => {
           ></textarea>
           <br />
           <button
-            className="letter-button"
+            className="editing-button"
             onClick={() => setEditLetter(false)}
           >
             done editing
