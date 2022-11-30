@@ -31,15 +31,7 @@ const Home = () => {
 
   return (
     <div className="root">
-      <Head>
-        <title>robot santa | 🤖🎅</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap"
-          rel="stylesheet"
-        ></link>
-      </Head>
+      <Head></Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
