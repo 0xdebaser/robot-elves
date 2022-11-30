@@ -29,7 +29,7 @@ export default function Document() {
         />
         <meta
           property="og:image"
-          content="../public/Robot Santa 425 x 810.png"
+          content="%PUBLIC_URL%/Robot_Santa_425x810.png"
         />
         <meta name="twitter:card" content="summary_large_image"></meta>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,6 +38,8 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap"
           rel="stylesheet"
         ></link>
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <title>robot santa | 🤖🎅</title>
       </Head>
       <body>
         <Main />
