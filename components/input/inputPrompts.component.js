@@ -148,7 +148,7 @@ function InputPrompts({
       )}
       {activeInput === "recipientName" && (
         <div id="recipient-name-input">
-          <label htmlFor="recipient-name">
+          <label className="question" htmlFor="recipient-name">
             What is the letter recipient's name?&nbsp;
           </label>
           <input
@@ -187,7 +187,7 @@ function InputPrompts({
       )}
       {activeInput === "additionalDetails" && (
         <div id="additional-details-input">
-          <label htmlFor="additional-details">
+          <label className="question" htmlFor="additional-details">
             What additional details should the letter include?
           </label>
           <textarea

@@ -42,33 +42,42 @@ const Home = () => {
             </h1>
           </div>
           <div className="header-subtitle">
-            <h2>
-              Customized letters 💌 from the{" "}
-              <span className="red-text">big man</span> 🎅 and his crew, powered
-              by the latest North Pole A.I. 🤖 magic.
-            </h2>
-            <hr />
-            {prompt && <p className="prompt-paragraph red-text">"{prompt}"</p>}
+            {!prompt && (
+              <h2>
+                Customized letters 💌 from the{" "}
+                <span className="red-text">big man</span> 🎅 and his crew,
+                powered by the latest North Pole A.I. 🤖 magic.
+              </h2>
+            )}
           </div>
         </div>
-        <InputPrompts
-          prompt={prompt}
-          setPrompt={setPrompt}
-          setApiOutput={setApiOutput}
-          setIsGenerating={setIsGenerating}
-          authorType={authorType}
-          setAuthorType={setAuthorType}
-          authorName={authorName}
-          setAuthorName={setAuthorName}
-          recipientType={recipientType}
-          setRecipientType={setRecipientType}
-          recipientName={recipientName}
-          setRecipientName={setRecipientName}
-          additionalDetails={additionalDetails}
-          setAdditionalDetails={setAdditionalDetails}
-          activeInput={activeInput}
-          setActiveInput={setActiveInput}
-        />
+
+        <div className="test">
+          <hr id="header-hr" />
+          {prompt && (
+            <h2 className="prompt-paragraph red-text">
+              "{prompt.slice(0, -1)}"
+            </h2>
+          )}
+          <InputPrompts
+            prompt={prompt}
+            setPrompt={setPrompt}
+            setApiOutput={setApiOutput}
+            setIsGenerating={setIsGenerating}
+            authorType={authorType}
+            setAuthorType={setAuthorType}
+            authorName={authorName}
+            setAuthorName={setAuthorName}
+            recipientType={recipientType}
+            setRecipientType={setRecipientType}
+            recipientName={recipientName}
+            setRecipientName={setRecipientName}
+            additionalDetails={additionalDetails}
+            setAdditionalDetails={setAdditionalDetails}
+            activeInput={activeInput}
+            setActiveInput={setActiveInput}
+          />
+        </div>
       </div>
       {isGenerating && <LoadingBar isGenerating={isGenerating} />}
       {apiOutput && (

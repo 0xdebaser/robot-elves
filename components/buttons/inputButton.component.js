@@ -13,7 +13,11 @@ function InputButton(props) {
     }
   }
 
-  return <button onClick={clickHandler}>{props.label}</button>;
+  return (
+    <button className={`input-button ${props.label}`} onClick={clickHandler}>
+      {props.label}
+    </button>
+  );
 }
 
 export default InputButton;

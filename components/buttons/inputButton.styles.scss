@@ -1,0 +1,29 @@
+:root {
+  --color-one: #f20574;
+  --color-two: #f20587;
+  --color-three: #05f2db;
+  --color-four: #c0d904;
+  --color-five: #f2780c;
+  --color-six: #41cc04;
+  --not-quite-black: #202020;
+}
+
+.input-button {
+  margin: 15px 5px;
+  font-size: larger;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.next,
+.write {
+  background-color: var(--color-four);
+  border: 1px solid var(--color-one);
+  color: var(--not-quite-black);
+}
+
+.back {
+  background-color: var(--color-one);
+  border: 2px solid var(--color-four);
+  color: #fff;
+}
