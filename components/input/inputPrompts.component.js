@@ -31,8 +31,8 @@ function InputPrompts({
   return (
     <div className="prompt-container">
       {activeInput === "authorType" && (
-        <div id="author-type-input">
-          <p className="question">Who is the letter from?</p>
+        <div id="author-type-input" className="input-div">
+          <p className="question">Who is writing the letter?</p>
           {authors.map((author, index) => {
             return (
               <div key={index} className="choice red-text">
@@ -64,7 +64,7 @@ function InputPrompts({
         </div>
       )}
       {activeInput === "authorName" && (
-        <div id="author-name-input">
+        <div id="author-name-input" className="input-div">
           <label htmlFor="author-name">
             {authorNameHelper(authorType)}&nbsp;
           </label>
@@ -101,7 +101,7 @@ function InputPrompts({
         </div>
       )}
       {activeInput === "recipientType" && (
-        <div id="recipient-type-input">
+        <div id="recipient-type-input" className="input-div">
           <p className="question">What best describes the recipient?</p>
           {recipientTypes.map((recipType, index) => {
             return (
@@ -147,7 +147,7 @@ function InputPrompts({
         </div>
       )}
       {activeInput === "recipientName" && (
-        <div id="recipient-name-input">
+        <div id="recipient-name-input" className="input-div">
           <label className="question" htmlFor="recipient-name">
             What is the letter recipient's name?&nbsp;
           </label>
@@ -186,7 +186,7 @@ function InputPrompts({
         </div>
       )}
       {activeInput === "additionalDetails" && (
-        <div id="additional-details-input">
+        <div id="additional-details-input" className="input-div">
           <label className="question" htmlFor="additional-details">
             What additional details should the letter include?
           </label>

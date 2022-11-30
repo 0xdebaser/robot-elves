@@ -19,15 +19,9 @@ body {
   background-size: cover;
 }
 
-.edit-letter-container {
-}
-
-.letter-button {
-  margin-right: 5px;
-}
-
 #header-hr {
   color: var(--not-quite-black);
+  width: 75%;
 }
 
 #letter-container {
@@ -35,9 +29,8 @@ body {
   font-size: x-large;
   width: 75%;
   white-space: pre-line;
-  background-color: #fff;
+  background-color: #ffffff7a;
   padding: 15px;
-  margin-bottom: 100px;
 }
 
 #loading-bar {
@@ -121,6 +114,7 @@ body {
   line-height: 1.4em;
   color: var(--not-quite-black);
   text-align: center;
+  padding: 0px 5px;
 }
 
 .prompt-container {
@@ -151,7 +145,8 @@ body {
   flex: 0 0 auto;
   flex-flow: column nowrap;
   gap: 10px;
-  height: 150px;
+  min-height: 250px;
+  height: fit-content;
   overflow: hidden;
   padding: 20px;
   position: relative;
@@ -173,6 +168,7 @@ body {
 
 .prompt-paragraph {
   text-align: center;
+  padding: 0px 5px;
 }
 
 textarea {
