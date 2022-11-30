@@ -50,7 +50,10 @@ function generateAndSetPrompt(
   }
 
   if (additionalDetails) {
-    newPrompt = `${newPrompt} that includes ${additionalDetails}.\n`;
+    newPrompt = `${newPrompt.slice(
+      0,
+      -2
+    )} that includes ${additionalDetails}.\n`;
   }
   setPrompt(newPrompt);
 }

@@ -2,9 +2,26 @@ import { useEffect, useState } from "react";
 
 let i = 0;
 
+const loadingArray = [
+  "🤖",
+  "L",
+  "🎅",
+  "O",
+  "🤖",
+  "A",
+  "🎅",
+  "D",
+  "🤖",
+  "I",
+  "🎅",
+  "N",
+  "🤖",
+  "G",
+  "---",
+];
+
 function LoadingBar({ isGenerating }) {
-  console.log("Running LoadingBar");
-  const [emojiArray, setEmojiArray] = useState([]);
+  const [emojiArray, setEmojiArray] = useState([loadingArray[0]]);
 
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -12,8 +29,7 @@ function LoadingBar({ isGenerating }) {
 
   async function drawBar() {
     await sleep(500);
-    console.log("i:", i);
-    setEmojiArray([...emojiArray, i % 2 === 0 ? "🤖" : "🎅"]);
+    setEmojiArray([...emojiArray, loadingArray[i % loadingArray.length]]);
     i++;
   }
 

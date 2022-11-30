@@ -6,6 +6,8 @@ import Image from "next/image";
 import buildspaceLogo from "../assets/buildspace-logo.png";
 import InputPrompts from "../components/input/inputPrompts.component";
 import LoadingBar from "../components/loadingBar";
+import apiOutputOnChangeHandler from "../components/input/handlers/apiOutputOnChangeHandler";
+import callGenerateEndpoint from "../components/input/helpers/callGenerateEndpoint";
 
 const Home = () => {
   const [prompt, setPrompt] = useState();
@@ -17,6 +19,7 @@ const Home = () => {
   const [recipientName, setRecipientName] = useState(null);
   const [additionalDetails, setAdditionalDetails] = useState(null);
   const [activeInput, setActiveInput] = useState("authorType");
+  const [editLetter, setEditLetter] = useState(false);
 
   function reset() {
     setPrompt(null);
@@ -44,9 +47,9 @@ const Home = () => {
           <div className="header-subtitle">
             {!prompt && (
               <h2>
-                Customized letters 💌 from the{" "}
-                <span className="red-text">big man</span> 🎅 and his crew,
-                powered by the latest North Pole A.I. 🤖 magic.
+                Customized letters from the&nbsp;
+                <span className="red-text">big man</span> and his crew, powered
+                by the latest North Pole A.I. magic.
               </h2>
             )}
           </div>
@@ -59,52 +62,76 @@ const Home = () => {
               "{prompt.slice(0, -1)}"
             </h2>
           )}
-          <InputPrompts
-            prompt={prompt}
-            setPrompt={setPrompt}
-            setApiOutput={setApiOutput}
-            setIsGenerating={setIsGenerating}
-            authorType={authorType}
-            setAuthorType={setAuthorType}
-            authorName={authorName}
-            setAuthorName={setAuthorName}
-            recipientType={recipientType}
-            setRecipientType={setRecipientType}
-            recipientName={recipientName}
-            setRecipientName={setRecipientName}
-            additionalDetails={additionalDetails}
-            setAdditionalDetails={setAdditionalDetails}
-            activeInput={activeInput}
-            setActiveInput={setActiveInput}
-          />
+          {!apiOutput && (
+            <InputPrompts
+              prompt={prompt}
+              setPrompt={setPrompt}
+              setApiOutput={setApiOutput}
+              setIsGenerating={setIsGenerating}
+              authorType={authorType}
+              setAuthorType={setAuthorType}
+              authorName={authorName}
+              setAuthorName={setAuthorName}
+              recipientType={recipientType}
+              setRecipientType={setRecipientType}
+              recipientName={recipientName}
+              setRecipientName={setRecipientName}
+              additionalDetails={additionalDetails}
+              setAdditionalDetails={setAdditionalDetails}
+              activeInput={activeInput}
+              setActiveInput={setActiveInput}
+            />
+          )}
         </div>
       </div>
       {isGenerating && <LoadingBar isGenerating={isGenerating} />}
-      {apiOutput && (
+      {apiOutput && !editLetter && (
         <div id="letter-container">
           <p>{apiOutput}</p>
           <button
+            className="letter-button"
             onClick={() => {
               alert("Print functionallity coming soon!");
             }}
           >
             print letter
           </button>
-          <button onClick={reset}>reset</button>
+          <button className="letter-button" onClick={() => setEditLetter(true)}>
+            edit text
+          </button>
+          <button
+            className="letter-button"
+            onClick={async () => {
+              setIsGenerating(true);
+              const output = await callGenerateEndpoint(prompt);
+              console.log(output.text);
+              setApiOutput(`${output.text}`);
+              setIsGenerating(false);
+            }}
+          >
+            generate again
+          </button>
+          <button className="letter-button" onClick={reset}>
+            reset
+          </button>
         </div>
       )}
-      {/* <div className="badge-container grow">
-        <a
-          href="https://buildspace.so/builds/ai-writer"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="badge">
-            <Image src={buildspaceLogo} alt="buildspace logo" />
-            <p>build with buildspace</p>
-          </div>
-        </a>
-      </div> */}
+      {apiOutput && editLetter && (
+        <div id="edit-letter-container">
+          <textarea
+            className="prompt-box"
+            value={apiOutput}
+            onChange={(event) => apiOutputOnChangeHandler(event, setApiOutput)}
+          ></textarea>
+          <br />
+          <button
+            className="letter-button"
+            onClick={() => setEditLetter(false)}
+          >
+            done editing
+          </button>
+        </div>
+      )}
     </div>
   );
 };
