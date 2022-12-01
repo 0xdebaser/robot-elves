@@ -4,6 +4,9 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <title>robot santa | 🤖🎅</title>
+        <link rel="icon" href="/favicon.ico" />
+
         {/* Global Site Tag (gtag.js) - Google Analytics */}
         <script
           async
@@ -38,8 +41,6 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap"
           rel="stylesheet"
         ></link>
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-        <title>robot santa | 🤖🎅</title>
       </Head>
       <body>
         <Main />
