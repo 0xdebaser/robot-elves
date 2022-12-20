@@ -37,6 +37,15 @@ const Home = () => {
       <Head></Head>
       <div>
         <div className="header">
+          <div id="powered-by-div">
+            <a href="https://www.gennyapp.com">
+              <img
+                id="powered-by"
+                src="powered_by_genny.png"
+                alt="powered by genny"
+              />
+            </a>
+          </div>
           <div className="header-title">
             <h1>
               Robot Santa is here to spread holiday cheer!
