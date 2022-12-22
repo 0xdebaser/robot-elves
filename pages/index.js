@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+//API key is pages/api/generate.js
+
 import Head from "next/head";
 
 import InputPrompts from "../components/input/inputPrompts.component";
